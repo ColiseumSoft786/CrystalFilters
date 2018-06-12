@@ -17,8 +17,8 @@ function myFunction() {
 $("#price").ionRangeSlider({
     type: "double",
     grid: true,
-    min: 278,
-    max: 30291000,
+    min: 27,
+    max: 538864000,
     prefix: "$",
     onChange: function (data) {
         $('#pricest').val(data.from);

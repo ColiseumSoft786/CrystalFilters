@@ -521,15 +521,20 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <table  class="table table-striped table-bordered" style="width:100%;font-size: 12px">
         <thead>
             <tr>
-                <th>#</th>
+                <th style="white-space: nowrap;width: 1%">#</th>
                 <th>Shape</th>
                 <th>Price</th>
                 <th>Cut</th>
                 <th>Color</th>
                 <th>Clarity</th>
+                <th>Polish</th>
+                <th>Symmetry</th>
+                <th>Fluorescence</th>
+                <th>Depth%</th>
+                <th>Table%</th>
             </tr>
         </thead>
         <tbody id="data">
@@ -544,6 +549,11 @@
             <th>Cut</th>
             <th>Color</th>
             <th>Clarity</th>
+            <th>Polish</th>
+            <th>Symmetry</th>
+            <th>Fluorescence</th>
+            <th>Depth%</th>
+            <th>Table%</th>
         </tr>
         </tfoot>
     </table>

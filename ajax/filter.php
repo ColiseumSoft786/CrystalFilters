@@ -8,12 +8,14 @@ $stmt1 = $conn->prepare($q);
 $stmt1->execute();
 $shapesfromdb = $stmt1->fetchAll();
 
+//print_r($_REQUEST);
+
 $cuts = array("Poor"=>"p","Fair" => "f","Good" => "g","VG" => "vg","EX" => "ex");
 $colors = array("J"=>'j',"I"=>"i","H"=>"h","G"=>"g","F"=>"f","E"=>"e","D"=>"d");
 $claritys = array("SI2"=>"si2","SI1"=>"si1","VS2"=>"vs2","VS1"=>"vs1","VVS2"=>"VVS2","VVS1"=>"vvs1","IF"=>"if","FL"=>"fl");
 $polishs = array("Poor"=>"p","Fair" => "f","Good" => "g","VG" => "vg","EX" => "ex");
 $symmetrys = array("Poor"=>"p","Fair" => "f","Good" => "g","VG" => "vg","EX" => "ex");
-$fluorescences = array("Very Strong" => "vsb","Strong" => "sb","Med." => "mb","Faint" => "faint","None / Neg."=> "none");
+$fluorescences = array("Very Strong" => "vsb","Strong" => " sb","Med." => " mb","Faint" => " faint","None / Neg."=> "none");
 
 $round = "";
 if(isset($_REQUEST['round'])){
@@ -160,7 +162,7 @@ foreach($cut as $item){
         $i++;
     }
 }
-$cut = array_slice($cuts,$is[0],$is[1]);
+$cut = array_slice($cuts,$is[0],$is[1]+1);
 $qcut = "cut IN (";
 $lastind = end($cut);
 foreach($cut as $key => $item){
@@ -184,7 +186,7 @@ foreach($color as $item){
         $i++;
     }
 }
-$color = array_slice($colors,$is[0],$is[1]);
+$color = array_slice($colors,$is[0],$is[1]+1);
 $qcolor = "color IN (";
 $lastind = end($color);
 foreach($color as $key => $item){
@@ -198,6 +200,7 @@ $qcolor .= " )";
 
 // Clarity Start
 $is= array();
+
 foreach($clarity as $item){
     $i = 0;
     foreach ($claritys as $key => $inner){
@@ -208,7 +211,7 @@ foreach($clarity as $item){
         $i++;
     }
 }
-$clarity = array_slice($claritys,$is[0],$is[1]);
+$clarity = array_slice($claritys,$is[0],$is[1]+1);
 $qclarity = "clarity IN (";
 $lastind = end($clarity);
 foreach($clarity as $key => $item){
@@ -232,7 +235,7 @@ foreach($polish as $item){
         $i++;
     }
 }
-$polish = array_slice($polishs,$is[0],$is[1]);
+$polish = array_slice($polishs,$is[0],$is[1]+1);
 $qpolish = "polish IN (";
 $lastind = end($polish);
 foreach($polish as $key => $item){
@@ -256,7 +259,7 @@ foreach($symmetry as $item){
         $i++;
     }
 }
-$symmetry = array_slice($symmetrys,$is[0],$is[1]);
+$symmetry = array_slice($symmetrys,$is[0],$is[1]+1);
 $qsymmetry = "symmetry IN (";
 $lastind = end($symmetry);
 foreach($symmetry as $key => $item){
@@ -280,7 +283,7 @@ foreach($fluorescence as $item){
         $i++;
     }
 }
-$fluorescence = array_slice($fluorescences,$is[0],$is[1]);
+$fluorescence = array_slice($fluorescences,$is[0],$is[1]+1);
 $qfluorescence = "fluorescence IN (";
 $lastind = end($fluorescence);
 foreach($fluorescence as $key => $item){
@@ -292,7 +295,7 @@ foreach($fluorescence as $key => $item){
 $qfluorescence .= " )";
 // Fluorescence End
 
-$query = "SELECT * FROM round_diamonds WHERE ( $qshape AND $qprice )  AND ( $qclarity OR $qcolor OR $qdepth OR $qfluorescence OR $qpolish OR $qcut OR $qsymmetry OR $qtable )";
+$query = "SELECT * FROM round_diamonds WHERE $qshape AND $qprice AND $qclarity AND $qcolor AND $qdepth AND $qfluorescence AND $qpolish AND $qcut AND $qsymmetry AND $qtable";
 
 //echo $query ."<br><br>";
 
@@ -303,8 +306,13 @@ $data = $stmt->fetchAll();
 $count = 1;
 $start = '';
 
+$start .= '<tr>
+                    <td style="text-align: center" colspan="11">Total Rows: '.count($data).'</td>
+                </tr>
+                ';
 
 foreach ($data as $item){
+
     $start .= '<tr>
                 <td>'.$count.'</td>
                 <td>'.$item["shape"].'</td>
@@ -312,6 +320,11 @@ foreach ($data as $item){
                 <td>'.$item["cut"].'</td>
                 <td>'.$item["color"].'</td>
                 <td>'.$item["clarity"].'</td>
+                <td>'.$item["polish"].'</td>
+                <td>'.$item["symmetry"].'</td>
+                <td>'.$item["fluorescence"].'</td>
+                <td>'.$item["depth"].'</td>
+                <td>'.$item["tbl"].'</td>
             </tr>';
     $count++;
 }
