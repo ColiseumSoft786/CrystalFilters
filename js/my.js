@@ -227,13 +227,8 @@ $('#filterform').submit(function(e){
       url: 'ajax/filter.php',
        type: 'POST',
        data: $(this).serialize(),
-       beforeSend: function(){
-           //console.log(datatable);
-       },
        success: function(result){
            var json = JSON.parse(result);
-           // datatable.destroy();
-           // $('#data').html(result);
            datatable.rows().remove();
             json.forEach(function (e) {
                 datatable.row.add([
@@ -246,17 +241,10 @@ $('#filterform').submit(function(e){
                     e[6],
                     e[7],
                     e[8],
-                    e[0],
+                    e[9],
                     e[10]
                 ]).draw(false);
             });
-
-          // console.log(datatable);
-          // $('#example').DataTable();
-          // $('.table').DataTable();
-
-
-
        }
    });
 });

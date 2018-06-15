@@ -521,15 +521,15 @@
             <tr>
                 <th style="white-space: nowrap;width: 1%">#</th>
                 <th>Shape</th>
-                <th>Price</th>
-                <th>Cut</th>
+                <th>Ct Weight</th>
                 <th>Color</th>
                 <th>Clarity</th>
+                <th>Cut</th>
                 <th>Polish</th>
                 <th>Symmetry</th>
                 <th>Fluorescence</th>
-                <th>Depth%</th>
-                <th>Table%</th>
+                <th>Price</th>
+                <th>Discount</th>
             </tr>
         </thead>
         <tbody id="data">
@@ -538,17 +538,17 @@
         </tbody>
         <tfoot>
         <tr>
-            <th>#</th>
+            <th style="white-space: nowrap;width: 1%">#</th>
             <th>Shape</th>
-            <th>Price</th>
-            <th>Cut</th>
+            <th>Ct Weight</th>
             <th>Color</th>
             <th>Clarity</th>
+            <th>Cut</th>
             <th>Polish</th>
             <th>Symmetry</th>
             <th>Fluorescence</th>
-            <th>Depth%</th>
-            <th>Table%</th>
+            <th>Price</th>
+            <th>Discount</th>
         </tr>
         </tfoot>
     </table>

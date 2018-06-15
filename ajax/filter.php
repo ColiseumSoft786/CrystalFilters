@@ -334,7 +334,7 @@ $start .= '';*/
 $json = array();
 $i = 1;
 foreach ($data as $item){
-    $new = array($i,$item["shape"],$item["orgprice"],$item["cut"],$item["color"],$item["clarity"],$item["polish"],$item["symmetry"],$item["fluorescence"],$item["depth"],$item["tbl"]);
+    $new = array($i,$item["shape"],number_format((float)($item["orgprice"]/$item['pricepercarat']), 4, '.', ''),$item["color"],$item["clarity"],$item["cut"],$item["polish"],$item["symmetry"],$item["fluorescence"],(float)$item["orgprice"],$item["disc"]);
     array_push($json,$new);
     $i++;
 }
