@@ -304,7 +304,7 @@ $stmt->execute();
 $data = $stmt->fetchAll();
 
 $count = 1;
-$start = '';
+/*$start = '';
 
 $start .= '<tr>
                     <td style="text-align: center" colspan="11">Total Rows: '.count($data).'</td>
@@ -329,8 +329,20 @@ foreach ($data as $item){
     $count++;
 }
 
+$start .= '';*/
 
-echo $start;
+$json = array();
+$i = 1;
+foreach ($data as $item){
+    $new = array($i,$item["shape"],$item["orgprice"],$item["cut"],$item["color"],$item["clarity"],$item["polish"],$item["symmetry"],$item["fluorescence"],$item["depth"],$item["tbl"]);
+    array_push($json,$new);
+    $i++;
+}
+
+
+
+
+echo json_encode($json);
 
 /*
  * shape

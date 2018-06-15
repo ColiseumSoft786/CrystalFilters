@@ -1,3 +1,5 @@
+var datatable;
+
 function myFunction() {
     var newvar = 'false';
     var price = document.getElementById("price").value;
@@ -220,12 +222,41 @@ function change(){
 }
 $('#filterform').submit(function(e){
    e.preventDefault();
+
    $.ajax({
       url: 'ajax/filter.php',
        type: 'POST',
        data: $(this).serialize(),
+       beforeSend: function(){
+           //console.log(datatable);
+       },
        success: function(result){
-          $('#data').html(result);
+           var json = JSON.parse(result);
+           // datatable.destroy();
+           // $('#data').html(result);
+           datatable.rows().remove();
+            json.forEach(function (e) {
+                datatable.row.add([
+                    e[0],
+                    e[1],
+                    e[2],
+                    e[3],
+                    e[4],
+                    e[5],
+                    e[6],
+                    e[7],
+                    e[8],
+                    e[0],
+                    e[10]
+                ]).draw(false);
+            });
+
+          // console.log(datatable);
+          // $('#example').DataTable();
+          // $('.table').DataTable();
+
+
+
        }
    });
 });

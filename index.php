@@ -200,12 +200,7 @@
 </style>
 
 <style>
-    #example_length{
-        display: none !important;
-    }
-    #example_filter{
-        display: none !important;
-    }
+
 </style>
 
 <form id="filterform" action="ajax/filter.php">
@@ -236,7 +231,7 @@
                         ?>
                         <div class="col-md-3">
                             <div class="checkbox checkbox-info checkbox-circle">
-                                <input onchange="change()" id="<?php echo $item['shape'] ?>" name="<?php echo $item['shape'] ?>" type="checkbox">
+                                <input checked onchange="change()" id="<?php echo $item['shape'] ?>" name="<?php echo $item['shape'] ?>" type="checkbox">
                                 <label for="<?php echo $item['shape'] ?>">
                                     <?php echo $item['shape'] ?>
                                 </label>
@@ -521,7 +516,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <table  class="table table-striped table-bordered" style="width:100%;font-size: 12px">
+            <table id="example" class="table table-striped table-bordered" style="width:100%;font-size: 12px;margin-top: 20px">
         <thead>
             <tr>
                 <th style="white-space: nowrap;width: 1%">#</th>
@@ -562,9 +557,13 @@
 </div>
 <script src="js/my.js"></script>
 
-<script type="text/javascript">$(document).ready(function() {
-    $('#example').DataTable();
-} );</script>
+<script type="text/javascript">
+
+            datatable = $('#example').DataTable();
+            change();
+
+
+</script>
 
 </body>
 </html>
