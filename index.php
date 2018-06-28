@@ -59,10 +59,10 @@
     </div>
         <div class="col-4">
     <div class="float-right">
-    <label class="switch">
-        <input type="checkbox" class="col-4" onclick="updatePolish()">
-        <span class="slider round"></span>
-    </label>
+   <label class="toggle">
+    <input type="checkbox" class="toggle-input" onclick="updatePolish()">
+    <div class="toggle-controller default-success"></div>
+  </label><!-- END .toggle -->
     </div>
     <div class="">
         <label for="">Polish</label>
@@ -71,10 +71,10 @@
     </div>
     <div class="col-4">
     <div class="float-right">
-    <label class="switch">
-        <input type="checkbox" onclick="updateSymmetry()">
-        <span class="slider round"></span>
-    </label>
+    <label class="toggle">
+    <input type="checkbox" class="toggle-input" onclick="updateSymmetry()">
+    <div class="toggle-controller default-success"></div>
+  </label><!-- END .toggle -->
     </div>
     <div class="">
         <label for="">Symmetry</label>
@@ -83,10 +83,10 @@
     </div>
      <div class="col-4">
     <div class="float-right">
-    <label class="switch">
-        <input type="checkbox" onclick="updateFluorescence()">
-        <span class="slider round"></span>
-    </label>
+   <label class="toggle">
+    <input type="checkbox" class="toggle-input" onclick="updateFluorescence()">
+    <div class="toggle-controller default-success"></div>
+  </label><!-- END .toggle -->
     </div>
     <div class="">
         <label for="">Fluorescence</label>
@@ -98,10 +98,10 @@
     </div>
      <div class="col-4">
     <div class="float-right">
-    <label class="switch">
-        <input type="checkbox" onclick="updateDepth()">
-        <span class="slider round"></span>
-    </label>
+    <label class="toggle">
+    <input type="checkbox" class="toggle-input" onclick="updateDepth()">
+    <div class="toggle-controller default-success"></div>
+  </label><!-- END .toggle -->
     </div>
     <div class="">
         <label for="">Depth %</label>
@@ -109,11 +109,11 @@
     </div>
     </div>
     <div class="col-4">
-    <div class="float-right">
-    <label class="switch">
-        <input type="checkbox" onclick="updateTable()">
-        <span class="slider round"></span>
-    </label>
+    <div class="float-right ">
+      <label class="toggle">
+    <input type="checkbox" class="toggle-input" onclick="updateTable()">
+    <div class="toggle-controller default-success"></div>
+  </label><!-- END .toggle -->
     </div>
     <div class="">
         <label for="">Table %</label>
@@ -122,86 +122,27 @@
     </div>
     <div class="col-4">
     <div class="float-right">
-    <label class="switch">
-        <input type="checkbox" onclick="updateLW()">
-        <span class="slider round"></span>
-    </label>
+    <label class="toggle">
+    <input type="checkbox" class="toggle-input" onclick="updateLW()">
+    <div class="toggle-controller default-success"></div>
+  </label><!-- END .toggle -->
     </div>
     <div class="">
         <label for="">L/W Ratio</label>
         <input type="text" id="lw">
     </div>
     </div>
-<div class="col-sm-5">
-      <button type="button" class="btn btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">
-        <div class="handle"></div>
-      </button>
-    </div>
 </div>
-</div>
-<div class="onoffswitch">
-    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-    <label class="onoffswitch-label" for="myonoffswitch">
-        <span class="onoffswitch-inner"></span>
-        <span class="onoffswitch-switch"></span>
-    </label>
 </div>
 <button class="offset-md-6 btn-primary btn" id="more">More</button>
+<button id="show_data">Show</button>
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <table id="example" class="table table-striped table-bordered" style="width:100%">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011/04/25</td>
-                <td>$320,800</td>
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011/07/25</td>
-                <td>$170,750</td>
-            </tr>
-            <tr>
-                <td>Ashton Cox</td>
-                <td>Junior Technical Author</td>
-                <td>San Francisco</td>
-                <td>66</td>
-                <td>2009/01/12</td>
-                <td>$86,000</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot>
-    </table>
+            <div id="tabel_show"></div>
         </div>
     </div>
 </div>
-
 <script src="js/vendor/jquery-1.12.3.min.js"></script>
 <script src="js/ion-rangeSlider/ion.rangeSlider.js"></script>
 <script src="js/my.js"></script>
@@ -210,6 +151,5 @@
 <script type="text/javascript">$(document).ready(function() {
     $('#example').DataTable();
 } );</script>
-
 </body>
 </html>

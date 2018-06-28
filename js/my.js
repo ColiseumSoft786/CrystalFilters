@@ -201,3 +201,18 @@ $(document).ready(function(){
     $("#toggle").hide();
 
 });
+    $('#show_data').click(function(){
+        // var $my_variable = "something";
+        var polish = document.getElementById("price").value;
+        var newn = polish+'&price='+polish;
+                   $.ajax({
+                        url: 'table.php',
+                        // data: {symmetry: $my_variable},
+                        data: "symmetry="+newn,
+                        type: 'POST',
+
+                       success: function (result) {
+                           $('#tabel_show').html(result);
+                       }
+                   });
+                        });
